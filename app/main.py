@@ -10,7 +10,7 @@ from app.schemas import FullDeaCertificateSchema
 load_dotenv()
 
 # Initialize the Gemini API client
-client = genai.Client(api_key=os.getenv("REDACTED_GEMINI_API_KEY"))
+client = genai.Client(api_key=os.getenv("AQ.Ab8RN6KYxQ_kVoY9YulwUoeVLBQippGZgwoXsxy55FG2Ds_byg"))
 
 def extract_dea_certificate(file_path: str):
     with open(file_path, "rb") as file:
@@ -24,7 +24,7 @@ def extract_dea_certificate(file_path: str):
     )
     # 3. Call Gemini API
     response = client.models.generate_content(
-        model="gemini-2.5-flash",
+        model="gemini-2.0-flash",
         contents=[
             types.Part.from_bytes(data=file_bytes, mime_type=mime_type),
             "Extract all relevant information from this DEA certificate."
